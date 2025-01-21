@@ -16,8 +16,8 @@ class TestBurger:
     def test_add_ingredient(self):
         burger = Burger()
         ingredient = Ingredient(dt.ingredients[1][0],
-                                dt.ingredients[2][1],
-                                dt.ingredients[3][2])
+                                dt.ingredients[1][1],
+                                dt.ingredients[1][2])
         burger.add_ingredient(ingredient)
 
         assert ingredient in burger.ingredients
@@ -25,8 +25,8 @@ class TestBurger:
     def test_remove_ingredient(self):
         burger = Burger()
         ingredient = Ingredient(dt.ingredients[2][0],
-                                dt.ingredients[4][1],
-                                dt.ingredients[3][2])
+                                dt.ingredients[2][1],
+                                dt.ingredients[2][2])
         burger.add_ingredient(ingredient)
         ingredient_index = burger.ingredients.index(ingredient)
         burger.remove_ingredient(ingredient_index)
@@ -35,12 +35,12 @@ class TestBurger:
 
     def test_move_ingredient(self):
         burger = Burger()
-        ingredient_1 = Ingredient(dt.ingredients[1][0],
-                                  dt.ingredients[2][1],
+        ingredient_1 = Ingredient(dt.ingredients[3][0],
+                                  dt.ingredients[3][1],
                                   dt.ingredients[3][2])
-        ingredient_2 = Ingredient(dt.ingredients[2][0],
+        ingredient_2 = Ingredient(dt.ingredients[4][0],
                                   dt.ingredients[4][1],
-                                  dt.ingredients[3][2])
+                                  dt.ingredients[4][2])
         burger.add_ingredient(ingredient_1)
         burger.add_ingredient(ingredient_2)
         ingredient_index = burger.ingredients.index(ingredient_1)
