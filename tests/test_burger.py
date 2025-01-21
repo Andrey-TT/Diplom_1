@@ -73,9 +73,9 @@ class TestBurger:
     def test_get_receipt_price(self):
         burger = Burger()
         bun = Bun(dt.bun_data[0], dt.bun_data[1])
-        ingridient = Ingredient(dt.ingredients[5][0],
-                                dt.ingredients[4][1],
-                                dt.ingredients[3][2])
+        ingridient = Ingredient(dt.ingredients[2][0],
+                                dt.ingredients[2][1],
+                                dt.ingredients[2][2])
         burger.set_buns(bun)
         burger.add_ingredient(ingridient)
 
@@ -86,11 +86,11 @@ class TestBurger:
         burger = Burger()
         bun = Bun(dt.bun_data[0], dt.bun_data[1])
         ingredient_1 = Ingredient(dt.ingredients[1][0],
-                                  dt.ingredients[2][1],
-                                  dt.ingredients[3][2])
-        ingredient_2 = Ingredient(dt.ingredients[2][0],
-                                  dt.ingredients[4][1],
-                                  dt.ingredients[3][2])
+                                  dt.ingredients[1][1],
+                                  dt.ingredients[1][2])
+        ingredient_2 = Ingredient(dt.ingredients[5][0],
+                                  dt.ingredients[5][1],
+                                  dt.ingredients[5][2])
         burger.set_buns(bun)
         burger.add_ingredient(ingredient_1)
         burger.add_ingredient(ingredient_2)
