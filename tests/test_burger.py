@@ -63,36 +63,26 @@ class TestBurger:
 
         assert burger.get_price() == burger_price
 
-    def test_get_receipt_bun(self):
+    def test_get_receipt(self):
         burger = Burger()
         bun = Bun(dt.bun_data[0], dt.bun_data[1])
         burger.set_buns(bun)
-
-        assert burger.bun.get_name() in burger.get_receipt()
-
-    def test_get_receipt_price(self):
-        burger = Burger()
-        bun = Bun(dt.bun_data[0], dt.bun_data[1])
-        ingridient = Ingredient(dt.ingredients[2][0],
-                                dt.ingredients[2][1],
-                                dt.ingredients[2][2])
-        burger.set_buns(bun)
-        burger.add_ingredient(ingridient)
-
-        assert str(burger.get_price()) in burger.get_receipt()
-
-    @pytest.mark.parametrize('index', [0, 1])
-    def test_get_receipt_ingredient(self, index):
-        burger = Burger()
-        bun = Bun(dt.bun_data[0], dt.bun_data[1])
         ingredient_1 = Ingredient(dt.ingredients[1][0],
                                   dt.ingredients[1][1],
                                   dt.ingredients[1][2])
         ingredient_2 = Ingredient(dt.ingredients[5][0],
                                   dt.ingredients[5][1],
                                   dt.ingredients[5][2])
-        burger.set_buns(bun)
         burger.add_ingredient(ingredient_1)
         burger.add_ingredient(ingredient_2)
 
-        assert burger.ingredients[index].get_name() in burger.get_receipt()
+        expected_receipt = (
+            f'(==== {bun.get_name()} ====)\n'
+            f'= {str(ingredient_1.get_type()).lower()} {ingredient_1.get_name()} =\n'
+            f'= {str(ingredient_2.get_type()).lower()} {ingredient_2.get_name()} =\n'            
+            f'(==== {bun.get_name()} ====)\n'
+            f"\n"
+            f"Price: {burger.get_price()}"
+        )
+
+        assert expected_receipt in burger.get_receipt()
