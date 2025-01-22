@@ -1,4 +1,3 @@
-import pytest
 import data as dt
 from unittest.mock import Mock
 from praktikum.bun import Bun
